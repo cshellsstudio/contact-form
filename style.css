@@ -1,0 +1,178 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { overflow-x: hidden; width: 100%; height: auto; }
+body { overflow-x: hidden; overflow-y: auto; width: 100%; min-height: 100vh; height: auto; font-family: 'Nunito', sans-serif; background: #f4f2ef; }
+
+/* ─── HEADER ─── */
+.header {
+  width: 100%;
+  background: #0d3b34;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 20px rgba(0,0,0,0.12);
+}
+.logo {
+  font-family: 'Chronicle Display', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+.logo span { color: rgba(255,255,255,0.65); font-style: italic; }
+
+/* ─── CONTACT WRAP ─── */
+.rc-contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.rc-contact-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(13,59,52,0.15);
+}
+
+.rc-headline {
+  font-family: 'Chronicle Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.15;
+  color: #0d3b34;
+  margin-bottom: 20px;
+}
+.rc-headline em {
+  font-style: italic;
+  color: #1a9189;
+}
+
+.rc-sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0d3b34;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.rc-email-note {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: #3f5f59;
+  margin-bottom: 32px;
+}
+.rc-email-note a {
+  color: #1a9189;
+  font-weight: 700;
+  text-decoration: none;
+}
+.rc-email-note a:hover { text-decoration: underline; }
+
+.rc-form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rc-input {
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: #0d3b34;
+  background: #ffffff;
+  border: 1.5px solid rgba(13,59,52,0.18);
+  border-radius: 4px;
+  padding: 16px 18px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+.rc-input::placeholder { color: #7c948f; }
+.rc-input:focus {
+  border-color: #1a9189;
+  box-shadow: 0 0 0 3px rgba(26,145,137,0.12);
+}
+.rc-textarea { resize: vertical; min-height: 100px; font-family: 'Nunito', sans-serif; }
+
+.rc-error {
+  display: none;
+  font-family: 'Nunito', sans-serif;
+  color: #a03030;
+  font-size: 0.85rem;
+  margin: -6px 0 0;
+}
+
+.rc-btn-send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Anaheim', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  background: #1a9189;
+  border: none;
+  border-radius: 100px;
+  padding: 16px 32px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 4px;
+  box-shadow: 0 6px 20px rgba(26,145,137,0.3);
+}
+.rc-btn-send:hover:not(:disabled) {
+  background: #0d3b34;
+  transform: translateY(-1px);
+}
+.rc-btn-send:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.rc-spinner {
+  display: none;
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: rc-spin 0.7s linear infinite;
+}
+.rc-btn-send.loading .rc-spinner { display: block; }
+.rc-btn-send.loading .rc-btn-label { display: none; }
+@keyframes rc-spin { to { transform: rotate(360deg); } }
+
+.rc-thankyou {
+  display: none;
+  text-align: center;
+  padding: 32px 24px;
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1.5px solid rgba(26,145,137,0.2);
+}
+.rc-thankyou h3 {
+  font-family: 'Chronicle Display', Georgia, serif;
+  font-size: 1.5rem;
+  color: #0d3b34;
+  margin-bottom: 8px;
+}
+.rc-thankyou p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: #3f5f59;
+}
+
+@media (max-width: 780px) {
+  .rc-contact-wrap {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 20px;
+  }
+}
