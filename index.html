@@ -42,6 +42,18 @@
   </div>
 </div>
 
+  <script>
+function sendHeightToParent() {
+  const height = document.documentElement.scrollHeight;
+  window.parent.postMessage({ type: 'rcContactFormHeight', height: height }, '*');
+}
+window.addEventListener('load', sendHeightToParent);
+window.addEventListener('resize', sendHeightToParent);
+// hulihin din yung pagbabago ng height pag-lumitaw yung thank-you message
+const rcObserver = new MutationObserver(sendHeightToParent);
+rcObserver.observe(document.body, { childList: true, subtree: true, attributes: true });
+</script>
+
 <script src="script.js"></script>
 </body>
 </html>
