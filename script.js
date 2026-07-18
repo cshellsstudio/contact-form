@@ -31,7 +31,7 @@ function rcSubmitContactForm() {
   btn.classList.add('loading');
   btn.disabled = true;
 
-  fetch('PASTE_YOUR_GHL_WEBHOOK_URL_HERE', {
+  fetch('https://services.leadconnectorhq.com/hooks/uhLI3atfL6jskyRIKRqT/webhook-trigger/7a80d743-b63e-482a-a584-5f7757fe0b69', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
